@@ -11,7 +11,7 @@ export default function NotFoundPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center px-4">
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center px-4 pt-16 md:pt-0">
             <div className="text-center max-w-2xl mx-auto">
                 {/* 404 Number */}
                 <motion.div
@@ -20,7 +20,7 @@ export default function NotFoundPage() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="mb-8"
                 >
-                    <h1 className="text-9xl md:text-[12rem] font-bold text-emerald-600 font-playfair">
+                    <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold text-emerald-600 font-playfair">
                         404
                     </h1>
                 </motion.div>
@@ -32,13 +32,13 @@ export default function NotFoundPage() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-8"
                 >
-                    <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
                         Oops! Page Not Found
                     </h2>
-                    <p className="text-lg text-gray-600 mb-2">
+                    <p className="text-base sm:text-lg text-gray-600 mb-2">
                         The page you're looking for seems to have wandered off into the digital void.
                     </p>
-                    <p className="text-base text-gray-500">
+                    <p className="text-sm sm:text-base text-gray-500">
                         Don't worry, even the best students sometimes take a wrong turn!
                     </p>
                 </motion.div>
@@ -53,7 +53,7 @@ export default function NotFoundPage() {
                     <img 
                         src="/clover-logo-icon.svg" 
                         alt="Clover Icon" 
-                        className="h-16 w-16 mx-auto opacity-90"
+                        className="h-12 w-12 sm:h-16 sm:w-16 mx-auto opacity-90"
                     />
                 </motion.div>
 
