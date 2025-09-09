@@ -28,10 +28,10 @@ export default function NavBar() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center space-x-1 md:space-x-3">
+          <div className="flex-shrink-0 flex items-center space-x-2 md:space-x-3">
             <img 
               src="/clover-logo-icon.svg" 
               alt="Clover Icon" 
@@ -101,7 +101,7 @@ export default function NavBar() {
 
           {/* Desktop Register Button */}
           <div className="hidden md:block flex-shrink-0">
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 lg:px-6 py-2 rounded-3xl hover:scale-105 text-xs lg:text-sm font-medium transition-all duration-200">
+            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 py-2 rounded-3xl hover:scale-105 text-xs md:text-sm font-medium transition-all duration-200">
               REGISTER NOW
             </button>
           </div>
