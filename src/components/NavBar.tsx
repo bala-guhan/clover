@@ -37,13 +37,13 @@ export default function NavBar() {
               alt="Clover Icon" 
               className="h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 hover:rotate-12 hover:scale-110"
             />
-            <div className='flex flex-row space-x-1 md:space-x-2'>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">C</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">L</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">O</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">V</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">E</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-900 font-playfair">R</span>
+            <div className='flex flex-row space-x-1 md:space-x-1'>
+                <span className="text-lg md:text-4xl font-bold text-emerald-700 font-playfair flex items-center justify-center">C</span>
+                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">L</span>
+                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">O</span>
+                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">V</span>
+                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">E</span>
+                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair border border-emerald-600 rounded-full w-8 md:w-10 flex items-center justify-center">R</span>
             </div>
           </div>
 
@@ -64,6 +64,7 @@ export default function NavBar() {
 
               <MenuItem setActive={setActive} active={active} item="Regions">
                 <div className="flex flex-col space-y-4 text-sm">
+                  <HoveredLink href="/regions">All Regions</HoveredLink>
                   {regions.map((region) => (
                     <HoveredLink key={region} href={`/regions/${region.toLowerCase().replace(' ', '-')}`}>
                       {region}
