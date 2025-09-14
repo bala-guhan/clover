@@ -1,17 +1,12 @@
 import { useState } from 'react';
-import { Menu, MenuItem, HoveredLink } from './ui/navbar-menu';
+import { MenuItem, HoveredLink } from './ui/navbar-menu';
+import { regionsData } from '../data/regions-info';
 
 export default function NavBar() {
   const [active, setActive] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const regions = [
-    'North America',
-    'Europe', 
-    'Asia',
-    'Oceania',
-    'Africa'
-  ];
+  // Regions are now imported from regionsData
 
   const services = [
     'Counselling',
@@ -31,7 +26,7 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-12 md:h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center space-x-2 md:space-x-3">
+          <a href="/" className="flex-shrink-0 flex items-center space-x-2 md:space-x-3 hover:opacity-80 transition-opacity">
             <img 
               src="/clover-logo-icon.svg" 
               alt="Clover Icon" 
@@ -45,29 +40,27 @@ export default function NavBar() {
                 <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">E</span>
                 <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair border border-emerald-600 rounded-full w-8 md:w-10 flex items-center justify-center">R</span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation Menu */}
           <div className="hidden md:flex flex-1 justify-center">
-            <Menu setActive={setActive}>
-              <MenuItem setActive={setActive} active={active} item="Home">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/">Home</HoveredLink>
-                </div>
-              </MenuItem>
+            <nav 
+              onMouseLeave={() => setActive(null)}
+              className="relative rounded-full shadow-input flex justify-center space-x-8 px-8 py-6 text-sm"
+            >
+              <a href="/" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+                Home
+              </a>
               
-              <MenuItem setActive={setActive} active={active} item="About Us">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/about">About Us</HoveredLink>
-                </div>
-              </MenuItem>
+              <a href="/about" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+                About Us
+              </a>
 
               <MenuItem setActive={setActive} active={active} item="Regions">
                 <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/regions">All Regions</HoveredLink>
-                  {regions.map((region) => (
-                    <HoveredLink key={region} href={`/regions/${region.toLowerCase().replace(' ', '-')}`}>
-                      {region}
+                  {regionsData.map((region) => (
+                    <HoveredLink key={region.id} href={`/${region.id}`}>
+                      {region.name}
                     </HoveredLink>
                   ))}
                 </div>
@@ -83,35 +76,28 @@ export default function NavBar() {
                 </div>
               </MenuItem>
 
-              <MenuItem setActive={setActive} active={active} item="Loans">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/loans">Student Loans</HoveredLink>
-                  <HoveredLink href="/loans/education">Education Loans</HoveredLink>
-                  <HoveredLink href="/loans/visa">Visa Loans</HoveredLink>
-                </div>
-              </MenuItem>
+              <a href="/loans" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+                Loans
+              </a>
 
-              <MenuItem setActive={setActive} active={active} item="Book Online Counselling">
-                <div className="flex flex-col space-y-4 text-sm">
-                  <HoveredLink href="/counselling">Book Session</HoveredLink>
-                  <HoveredLink href="/counselling/availability">Check Availability</HoveredLink>
-                </div>
-              </MenuItem>
-            </Menu>
+              <a href="/counselling" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+                Book Online Counselling
+              </a>
+            </nav>
           </div>
 
           {/* Desktop Register Button */}
           <div className="hidden md:block flex-shrink-0">
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 py-2 rounded-3xl hover:scale-105 text-xs md:text-sm font-medium transition-all duration-200">
+            <a href="/counselling" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 py-2 rounded-3xl hover:scale-105 text-xs md:text-sm font-medium transition-all duration-200 inline-block">
               REGISTER NOW
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded-lg text-xs font-medium transition-colors">
+            <a href="/counselling" className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1 rounded-lg text-xs font-medium transition-colors inline-block">
               REGISTER
-            </button>
+            </a>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg text-emerald-900 hover:bg-emerald-50 transition-colors"
@@ -133,10 +119,17 @@ export default function NavBar() {
             <div className="px-4 py-4 space-y-3">
               <a href="/" className="block text-emerald-900 hover:text-emerald-700 font-medium">Home</a>
               <a href="/about" className="block text-emerald-900 hover:text-emerald-700 font-medium">About Us</a>
-              <a href="/regions" className="block text-emerald-900 hover:text-emerald-700 font-medium">Regions</a>
+              <div className="space-y-2">
+                <div className="text-emerald-900 font-semibold text-sm">Regions</div>
+                {regionsData.map((region) => (
+                  <a key={region.id} href={`/${region.id}`} className="block text-emerald-700 hover:text-emerald-600 font-medium ml-4 text-sm">
+                    {region.name}
+                  </a>
+                ))}
+              </div>
               <a href="/services" className="block text-emerald-900 hover:text-emerald-700 font-medium">Services</a>
               <a href="/loans" className="block text-emerald-900 hover:text-emerald-700 font-medium">Loans</a>
-              <a href="/counselling" className="block text-emerald-900 hover:text-emerald-700 font-medium">Book Counselling</a>
+              <a href="/counselling" className="block text-emerald-900 hover:text-emerald-700 font-medium">Book Online Counselling</a>
             </div>
           </div>
         )}

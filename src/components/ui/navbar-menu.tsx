@@ -28,7 +28,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white hover:opacity-[0.9]"
+        className="cursor-pointer text-emerald-700 hover:text-emerald-600 transition-colors"
       >
         {item}
       </motion.p>
@@ -113,7 +113,7 @@ export const HoveredLink = ({ children, ...rest }: React.AnchorHTMLAttributes<HT
   return (
     <a
       {...rest}
-      className="text-neutral-200 hover:text-white "
+      className="text-emerald-700 hover:text-emerald-600 transition-colors"
     >
       {children}
     </a>

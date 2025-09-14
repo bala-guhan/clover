@@ -1,334 +1,273 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { regionsData, countriesData, type RegionInfo } from '../data/countries-info';
+import { regionsData } from '../data/regions-info';
 import { RippleButton } from '../components/magicui/ripple-button';
-import { 
-  FaFlag,
-  FaFlag as USFlag,
-  FaFlag as CanadaFlag,
-  FaFlag as UKFlag,
-  FaFlag as IrelandFlag,
-  FaFlag as NetherlandsFlag,
-  FaFlag as SwitzerlandFlag,
-  FaFlag as SwedenFlag,
-  FaFlag as PolandFlag,
-  FaFlag as HungaryFlag,
-  FaFlag as GermanyFlag,
-  FaFlag as FinlandFlag,
-  FaFlag as DenmarkFlag,
-  FaFlag as CyprusFlag,
-  FaFlag as LithuaniaFlag,
-  FaFlag as BulgariaFlag,
-  FaFlag as FranceFlag,
-  FaFlag as ItalyFlag,
-  FaFlag as SpainFlag,
-  FaFlag as AustriaFlag,
-  FaFlag as SingaporeFlag,
-  FaFlag as MalaysiaFlag,
-  FaFlag as ChinaFlag,
-  FaFlag as HongKongFlag,
-  FaFlag as DubaiFlag,
-  FaFlag as MauritiusFlag,
-  FaFlag as AustraliaFlag,
-  FaFlag as NewZealandFlag,
-  FaFlag as SouthAfricaFlag,
-  FaChevronRight
-} from 'react-icons/fa';
+import { FaChevronRight, FaDollarSign, FaQuestionCircle, FaCheckCircle } from 'react-icons/fa';
 
 const Regions: React.FC = () => {
-  const { regionId } = useParams<{ regionId: string }>();
   const navigate = useNavigate();
-
-  // Helper function to get flag icon for country
-  const getFlagIcon = (countryId: string) => {
-    const flagMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
-      'us': USFlag,
-      'canada': CanadaFlag,
-      'uk': UKFlag,
-      'ireland': IrelandFlag,
-      'netherlands': NetherlandsFlag,
-      'switzerland': SwitzerlandFlag,
-      'sweden': SwedenFlag,
-      'poland': PolandFlag,
-      'hungary': HungaryFlag,
-      'germany': GermanyFlag,
-      'finland': FinlandFlag,
-      'denmark': DenmarkFlag,
-      'cyprus': CyprusFlag,
-      'lithuania': LithuaniaFlag,
-      'bulgaria': BulgariaFlag,
-      'france': FranceFlag,
-      'italy': ItalyFlag,
-      'spain': SpainFlag,
-      'austria': AustriaFlag,
-      'singapore': SingaporeFlag,
-      'malaysia': MalaysiaFlag,
-      'china': ChinaFlag,
-      'hongkong': HongKongFlag,
-      'dubai': DubaiFlag,
-      'mauritius': MauritiusFlag,
-      'australia': AustraliaFlag,
-      'newzealand': NewZealandFlag,
-      'southafrica': SouthAfricaFlag
-    };
-    return flagMap[countryId] || FaFlag;
-  };
-
-  // Helper function to get country image
-  const getCountryImage = (countryId: string) => {
-    const imageMap: { [key: string]: string } = {
-      'us': '/uni-stud-hero.jpeg',
-      'canada': '/uni-stud-hero.jpeg',
-      'uk': '/uni-stud-hero.jpeg',
-      'ireland': '/uni-stud-hero.jpeg',
-      'netherlands': '/uni-stud-hero.jpeg',
-      'switzerland': '/uni-stud-hero.jpeg',
-      'sweden': '/uni-stud-hero.jpeg',
-      'poland': '/uni-stud-hero.jpeg',
-      'hungary': '/uni-stud-hero.jpeg',
-      'germany': '/uni-stud-hero.jpeg',
-      'finland': '/uni-stud-hero.jpeg',
-      'denmark': '/uni-stud-hero.jpeg',
-      'cyprus': '/uni-stud-hero.jpeg',
-      'lithuania': '/uni-stud-hero.jpeg',
-      'bulgaria': '/uni-stud-hero.jpeg',
-      'france': '/uni-stud-hero.jpeg',
-      'italy': '/uni-stud-hero.jpeg',
-      'spain': '/uni-stud-hero.jpeg',
-      'austria': '/uni-stud-hero.jpeg',
-      'singapore': '/uni-stud-hero.jpeg',
-      'malaysia': '/uni-stud-hero.jpeg',
-      'china': '/uni-stud-hero.jpeg',
-      'hongkong': '/uni-stud-hero.jpeg',
-      'dubai': '/uni-stud-hero.jpeg',
-      'mauritius': '/uni-stud-hero.jpeg',
-      'australia': '/uni-stud-hero.jpeg',
-      'newzealand': '/uni-stud-hero.jpeg',
-      'southafrica': '/uni-stud-hero.jpeg'
-    };
-    return imageMap[countryId] || '/uni-stud-hero.jpeg'; // consistent fallback image
-  };
+  const location = useLocation();
+  
+  // Get the region ID from the current pathname
+  const regionId = location.pathname.substring(1); // Remove the leading slash
 
   // Find the region data
-  const regionData: RegionInfo | undefined = regionsData.find(region => region.id === regionId);
+  const region = regionsData.find(r => r.id === regionId);
 
-  // If no region ID provided, show all regions
-  if (!regionId) {
+  if (!region) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-white">
-        {/* Header Section */}
-        <div className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <h1 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6">
-                Study by Regions
-              </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore educational opportunities across different regions of the world. 
-                Choose a region to discover countries and their study programs.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Regions Grid */}
-        <div className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regionsData.map((region, index) => {
-                const countryCount = region.countries.length;
-                const regionCountries = countriesData.filter(country => 
-                  region.countries.includes(country.id)
-                );
-
-                return (
-                  <motion.div
-                    key={region.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ y: -5 }}
-                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
-                    onClick={() => navigate(`/regions/${region.id}`)}
-                  >
-                    <div className="p-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-2xl font-bold text-emerald-900">
-                          {region.name}
-                        </h3>
-                        <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
-                          {countryCount} countries
-                        </span>
-                      </div>
-                      
-                      <p className="text-gray-600 mb-6">
-                        {region.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {regionCountries.slice(0, 4).map((country) => (
-                          <span
-                            key={country.id}
-                            className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-sm"
-                          >
-                            <span>{country.flag}</span>
-                            <span>{country.name}</span>
-                          </span>
-                        ))}
-                        {countryCount > 4 && (
-                          <span className="inline-flex items-center bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-sm">
-                            +{countryCount - 4} more
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center text-emerald-600 font-medium">
-                        <span>Explore {region.name}</span>
-                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // If region ID provided but region not found
-  if (!regionData) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-white flex items-center justify-center">
+      <div className="min-h-screen bg-emerald-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-emerald-900 mb-4">Region Not Found</h1>
-          <p className="text-xl text-gray-600 mb-8">The region you're looking for doesn't exist.</p>
+          <p className="text-gray-600 mb-8">The region you're looking for doesn't exist.</p>
           <button
-            onClick={() => navigate('/regions')}
+            onClick={() => navigate('/')}
             className="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors"
           >
-            View All Regions
+            Go Home
           </button>
         </div>
       </div>
     );
   }
 
-  // Get countries for this region
-  const regionCountries = countriesData.filter(country => 
-    regionData.countries.includes(country.id)
-  );
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-white">
-      {/* Header Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-emerald-200/50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <div className="flex items-center justify-center mb-6">
-              <button
-                onClick={() => navigate('/regions')}
-                className="flex items-center text-emerald-600 hover:text-emerald-700 transition-colors mr-4"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Regions
-              </button>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold text-emerald-900 mb-6">
-              Study in {regionData.name}
+            <h1 className="text-4xl md:text-6xl font-bold text-emerald-900 mb-8">
+              {region.name}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              {regionData.description}
-            </p>
-            <p className="text-lg text-gray-500">
-              {regionCountries.length} countries available
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+              {region.description}
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Countries Grid */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regionCountries.map((country, index) => {
-              const FlagIcon = getFlagIcon(country.id);
-              const countryImage = getCountryImage(country.id);
-              
-              return (
-                <motion.div
-                  key={country.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="relative rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-80"
-                  onClick={() => navigate(`/${country.id}`)}
-                >
-                  {/* Background Image */}
-                  <div className="absolute inset-0">
-                    <img
-                      src={countryImage}
-                      alt={`${country.name} universities`}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
-                  </div>
+      {/* Hero Image Section */}
+      <div className="relative bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-12">
+              <img
+                src={region.heroImage}
+                alt={`Study in ${region.name}`}
+                className="w-full h-96 md:h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                  Discover {region.name}
+                </h2>
+                <p className="text-lg opacity-90">
+                  Your gateway to world-class education
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
-                  {/* Top Content - Country Name and Flag */}
-                  <div className="absolute top-4 left-4 right-4">
-                    <div className="flex flex-row items-center gap-3">
-                      <div className="flex items-center justify-center w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full">
-                        <FlagIcon className="w-5 h-5 text-emerald-600" />
+
+      {/* Countries Section with Alternating Layout */}
+      <div className="relative bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">
+              Countries in {region.name}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Explore the diverse educational opportunities across {region.name}
+            </p>
+          </motion.div>
+
+          <div className="space-y-20">
+            {region.countries.map((country, index) => (
+              <motion.div
+                key={country.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
+              >
+                {/* Image Section */}
+                <div className="flex-1">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                      src={country.image}
+                      alt={`Study in ${country.name}`}
+                      className="w-full h-80 md:h-96 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 text-white">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <span className="text-3xl">{country.flag}</span>
+                        <h3 className="text-2xl md:text-3xl font-bold">{country.name}</h3>
                       </div>
-                      <h3 className="text-xl font-bold text-white">
-                        {country.name}
-                      </h3>
+                      <p className="text-sm opacity-90">{country.shortDescription}</p>
                     </div>
-                    <p className="text-sm text-white/80 capitalize mt-2">
-                      {regionData?.name}
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="flex-1 space-y-8">
+                  {/* Country Description */}
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-emerald-900 mb-4">
+                      Why Choose {country.name}?
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                      {country.description}
                     </p>
                   </div>
 
-                  {/* Bottom Content - CTA and Description */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    {/* CTA Button */}
-                    <RippleButton 
-                      className="flex flex-row items-center justify-center gap-2 bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700 transition-colors mb-4 px-4 py-2"
-                      rippleColor="#ffffff"
-                      onClick={() => navigate(`/${country.id}`)}
-                    >
-                      <span>Explore {country.name}</span>
-                      <FaChevronRight className="w-4 h-4" />
-                    </RippleButton>
+                  {/* Why Choose Points */}
+                  <div className="space-y-4">
+                    {country.whyChoose.map((reason, reasonIndex) => (
+                      <div key={reasonIndex} className="flex items-start space-x-3">
+                        <FaCheckCircle className="w-5 h-5 text-emerald-600 mt-1 flex-shrink-0" />
+                        <p className="text-gray-700 leading-relaxed">{reason}</p>
+                      </div>
+                    ))}
+                  </div>
 
-                    {country.description && (
-                      <p className="text-white line-clamp-3 text-sm leading-relaxed">
-                        {country.description}
+                  {/* Cost Information */}
+                  <div className="bg-emerald-50 rounded-2xl p-6">
+                    <div className="flex items-center mb-4">
+                      <FaDollarSign className="w-6 h-6 text-emerald-600 mr-3" />
+                      <h4 className="text-xl font-bold text-emerald-900">Estimated Costs</h4>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <div className="text-sm text-gray-600 mb-1">Tuition</div>
+                        <div className="font-semibold text-emerald-700">{country.costs.tuition}</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-sm text-gray-600 mb-1">Living</div>
+                        <div className="font-semibold text-emerald-700">{country.costs.livingExpenses}</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-sm text-gray-600 mb-1">Total</div>
+                        <div className="font-bold text-emerald-800 text-lg">{country.costs.totalEstimated}</div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-3 text-center">{country.costs.note}</p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-4">
+                    <RippleButton
+                      onClick={() => navigate(`/${country.id}`)}
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto"
+                    >
+                      Explore {country.name} <FaChevronRight className="inline-block ml-2" />
+                    </RippleButton>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Combined FAQ Section */}
+      <div className="relative bg-emerald-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Common questions about studying in {region.name}
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              {region.combinedFaq.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-emerald-100"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <FaQuestionCircle className="w-4 h-4 text-emerald-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-emerald-900 mb-3">
+                        {faq.question}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {faq.answer}
                       </p>
-                    )}
+                    </div>
                   </div>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="relative bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">
+              Ready to Start Your Journey in {region.name}?
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Let us help you find the perfect university and program in {region.name}. 
+              Our expert counsellors are here to guide you through every step of your application process.
+            </p>
+            
+            <div className="pt-8">
+              <RippleButton
+                onClick={() => navigate('/counselling')}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Get Free Counselling
+              </RippleButton>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
