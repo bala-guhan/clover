@@ -1,10 +1,6 @@
 import { motion } from "motion/react";
 
-const Pics: string[] = [
-  "usa-uni-3.jpeg",
-  "usa-uni-2.jpeg",
-  "usa-uni-1.jpeg",
-];
+
 
 export function TriPhotoHolder() {
   return (
@@ -20,7 +16,7 @@ export function TriPhotoHolder() {
           delay: 0.6
         }}
         style={{
-          backgroundImage: `url(/public/${Pics[1]})`,
+          backgroundImage: `url(/public/usa-uni-3.jpeg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -36,7 +32,7 @@ export function TriPhotoHolder() {
           ease: [0.25, 0.46, 0.45, 0.94] 
         }}
         style={{
-          backgroundImage: `url(/public/${Pics[0]})`,
+          backgroundImage: `url(/public/usa-uni-1.jpeg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -53,7 +49,7 @@ export function TriPhotoHolder() {
           delay: 0.6
         }}
         style={{
-          backgroundImage: `url(/public/${Pics[2]})`,
+          backgroundImage: `url(/public/usa-uni-2.jpeg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
