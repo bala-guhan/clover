@@ -130,7 +130,14 @@ export default function NavBar() {
                   </a>
                 ))}
               </div>
-              <a href="/services" className="block text-emerald-900 hover:text-emerald-700 font-medium">Services</a>
+              <div className="space-y-2">
+                <div className="text-emerald-900 font-semibold text-sm">Services</div>
+                {services.map((service) => (
+                  <a key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`} className="block text-emerald-700 hover:text-emerald-600 font-medium ml-4 text-sm">
+                    {service}
+                  </a>
+                ))}
+              </div>
               <a href="/loans" className="block text-emerald-900 hover:text-emerald-700 font-medium">Loans</a>
               <a href="/counselling" className="block text-emerald-900 hover:text-emerald-700 font-medium">Book Online Counselling</a>
             </div>
