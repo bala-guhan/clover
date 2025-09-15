@@ -19,7 +19,7 @@ export type UniversitySelectionData = {
 export const universitySelectionData: UniversitySelectionData = {
   title: "University Selection",
   description: "With 31+ countries and 800+ top universities in our network, we provide a smart, data-driven university shortlisting process. Using advanced AI tools and our expert knowledge, we match your profile with the most relevant universities and programs.",
-  heroImage: "/uni-stud-3hero.jpeg", // Using existing hero image
+  heroImage: "/uni-selection.jpeg",
   services: [
     {
       title: "Profile-Based Shortlisting",

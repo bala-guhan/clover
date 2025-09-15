@@ -29,7 +29,7 @@ export const internshipData: InternshipData = {
   title: "Internship",
   heading: "Your Launchpad to Global Opportunities",
   description: "We are India's only consultancy that goes beyond admissions by helping students build strong, competitive profiles and give Internship in our own organizations.",
-  heroImage: "/uni-stud-hero.jpeg", // Using existing hero image
+  heroImage: "/internship.jpeg",
   services: [
     {
       title: "Internship Opportunities in Our Organization",

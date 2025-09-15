@@ -31,7 +31,7 @@ export const testPreparationData: TestPreparationData = {
   title: "Test Preparation",
   heading: "One Stop Solution For All Standardized Tests",
   description: "Our test preparation programs are designed to help students achieve competitive scores that strengthen their university applications.",
-  heroImage: "/uni-stud-2hero.jpeg", // Using existing hero image
+  heroImage: "/test-prep.jpeg",
   services: [
     {
       title: "Comprehensive Coaching",

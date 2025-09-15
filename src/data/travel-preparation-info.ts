@@ -24,7 +24,7 @@ export const travelPreparationData: TravelPreparationData = {
   heading: "Your Study Abroad Journey Continues",
   subheading: "End-to-end travel preparation support so that you can focus on your excitement, not logistics.",
   description: "Your study abroad journey doesn't end with getting your visa, you still need to plan for a smooth and stress-free transition. At Clover Overseas Education, we provide end-to-end travel preparation support so that you can focus on your excitement, not logistics.",
-  heroImage: "/colleagues-discussing-at-desk-in-creative-office.webp",
+  heroImage: "/travel-prep.jpeg",
   services: [
     {
       title: "Flight Booking Assistance",

@@ -68,14 +68,14 @@ export const universityImages = [
 
 // Service-specific images
 export const serviceImages = {
-  'Counselling': '/colleagues-discussing-at-desk-in-creative-office.webp',
-  'University Selection': '/university-student-holding-notebooks-wearing-bag-smiling-transparent-background-png.webp',
-  'Test Preparation': '/a-smiling-young-man-holding-books-free-png.webp',
-  'Internships': '/business-colleagues-discussing-architecture-project-in-office.webp',
-  'Documentation': '/student-celebrates-academic-achievement-with-books-cut-out-transparent-png.webp',
-  'University Application & Admission': '/ai-generated-female-university-student-smiling-happily-on-transparent-background-png.webp',
-  'Visa': '/smiling-student-girl-holding-book-and-backpack-isolated-on-transparent-background-png.webp',
-  'Travel Preparation': '/a-happy-smiling-young-college-student-with-a-book-in-hand-isolated-on-a-transparent-background-generative-ai-free-png.webp',
-  'Post Landing': '/group-of-young-people-discussing-in-the-co-working-office.webp',
-  'Scholarship': '/student-celebrates-academic-achievement-with-books-cut-out-transparent-png.webp'
+  'Counselling': '/uni-counselling.jpeg',
+  'University Selection': '/uni-selection.jpeg',
+  'Test Preparation': '/test-prep.jpeg',
+  'Internships': '/internship.jpeg',
+  'Documentation': '/hong-kong.jpg',
+  'University Application & Admission': '/admission.jpeg',
+  'Visa': '/visa.jpeg',
+  'Travel Preparation': '/travel-prep.jpeg',
+  'Post Landing': '/post-landing.jpeg',
+  'Scholarship': '/scholarship.jpeg'
 };

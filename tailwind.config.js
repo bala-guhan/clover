@@ -20,6 +20,15 @@ export default {
   				'Arial',
   				'Noto Sans',
   				'sans-serif'
+  			],
+  			serif: [
+  				'DM Serif Display',
+  				'ui-serif',
+  				'Georgia',
+  				'Cambria',
+  				'Times New Roman',
+  				'Times',
+  				'serif'
   			]
   		},
   		borderRadius: {

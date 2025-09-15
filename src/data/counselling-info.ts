@@ -19,7 +19,7 @@ export type CounsellingData = {
 export const counsellingData: CounsellingData = {
   title: "Counselling",
   description: "Choosing where and what to study abroad can be a complex and overwhelming decision. At Clover Overseas Education, we simplify the process with personalized counselling sessions designed around your unique profile.",
-  heroImage: "/uni-stud-hero.jpeg", // Using existing hero image
+  heroImage: "/uni-counselling.jpeg",
   services: [
     {
       title: "Profile Evaluation",

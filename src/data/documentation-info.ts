@@ -20,7 +20,7 @@ export type DocumentationData = {
 export const documentationData: DocumentationData = {
   title: "Documentation",
   description: "We ensure your application documents are error-free, impactful, and aligned with university requirements. Clover Overseas Education ensures that every document you submit from SOPs to resumes is professional, polished, and highlights your unique strengths.",
-  heroImage: "/uni-stud-3hero.jpeg", // Using existing hero image
+  heroImage: "/hong-kong.jpg",
   services: [
     {
       number: "①",

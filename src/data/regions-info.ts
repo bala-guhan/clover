@@ -893,7 +893,7 @@ export const regionsData: RegionData[] = [
         flag: "🇨🇳",
         description: "China offers world-class education with rapidly growing universities and strong connections to global markets. The country provides excellent academic programs and unique cultural experiences.",
         shortDescription: "World-class education with rapidly growing universities, strong global market connections, and unique cultural experiences.",
-        image: "/uni-stud-3hero.jpeg",
+        image: countryImages['China'] || "/China.jpg",
         whyChoose: [
           "🎓 Home to top universities like Tsinghua & Peking University",
           "🌍 Rapidly growing economy with excellent career prospects",
@@ -924,7 +924,7 @@ export const regionsData: RegionData[] = [
         flag: "🇭🇰",
         description: "Hong Kong offers world-class education with English as the primary language and strong connections to Asian and global markets. The city provides excellent academic programs and career opportunities.",
         shortDescription: "World-class education with English as primary language, strong Asian and global market connections, and excellent career opportunities.",
-        image: "/uni-stud-hero.jpeg",
+        image: countryImages['Hong Kong'] || "/hong-kong.jpg",
         whyChoose: [
           "🎓 Home to top universities like HKU & HKUST",
           "🌍 English-speaking environment with Asian connections",
@@ -955,7 +955,7 @@ export const regionsData: RegionData[] = [
         flag: "🇦🇪",
         description: "Dubai offers modern education with international universities and a multicultural environment. The city provides excellent academic programs and strong connections to Middle Eastern and global markets.",
         shortDescription: "Modern education with international universities, multicultural environment, and strong Middle Eastern and global market connections.",
-        image: "/uni-stud-2hero.jpeg",
+        image: countryImages['Dubai (UAE)'] || "/Dubai.jpg",
         whyChoose: [
           "🎓 Home to international branch campuses of top universities",
           "🌍 Multicultural environment with English as primary language",
@@ -996,7 +996,7 @@ export const regionsData: RegionData[] = [
     id: "oceania",
     name: "Oceania",
     description: "Study in the vibrant educational landscape of Oceania, known for high-quality universities and multicultural environments.",
-    heroImage: "/uni-stud-hero.jpeg",
+    heroImage: "/newzea-stud.jpeg",
     whyChooseDescription: "Oceania offers world-class education with excellent research facilities, multicultural environments, and strong post-study work opportunities. Both Australia and New Zealand provide high quality of life and welcoming atmospheres for international students.",
     whyChoose: [
       "🎓 Home to top universities with excellent research facilities",
@@ -1104,7 +1104,7 @@ export const regionsData: RegionData[] = [
     id: "africa",
     name: "Africa",
     description: "Explore emerging educational opportunities in Africa's diverse and growing academic landscape.",
-    heroImage: "/uni-stud-2hero.jpeg",
+    heroImage: "/africa-stud.jpeg",
     whyChooseDescription: "Africa offers emerging educational opportunities with growing academic institutions and diverse cultural experiences. Countries like South Africa and Mauritius provide quality education with unique perspectives and growing international recognition.",
     whyChoose: [
       "🌍 Diverse cultures and unique perspectives on global issues",

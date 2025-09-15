@@ -24,7 +24,7 @@ export const universityApplicationsData: UniversityApplicationsData = {
   heading: "Your Admission Partner, Every Step of the Way",
   subheading: "Step-by-step guidance from filling applications to securing your offer letter — so you can focus on your future, not paperwork.",
   description: "End-to-End Application Support - We handle everything from filling forms to securing your admission letter. Our team takes complete responsibility for your university applications:",
-  heroImage: "/global-indian-business-office-lifestyle.webp",
+  heroImage: "/admission.jpeg",
   services: [
     {
       number: 1,

@@ -271,10 +271,10 @@ export default function HomePage() {
             
             {/* Content */}
             <div className="relative z-10 max-w-4xl text-center md:text-left">
-                <h1 className="text-2xl md:text-5xl text-white font-semibold mb-4 md:mb-6 leading-tight">
+                <h1 className="text-2xl md:text-5xl text-white font-semibold mb-4 md:mb-6 leading-tight font-serif">
                     Your Journey to Global Education Starts Here
                 </h1>
-                <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8 max-w-2xl md:mx-0">
+                <p className="text-base md:text-lg text-gray-200 mb-6 md:mb-8 max-w-2xl md:mx-0 font-serif">
                     Your dream university made closer with the right plan, right guidance, and right support
                 </p>
                 

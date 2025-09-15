@@ -20,7 +20,7 @@ export type VisaData = {
 export const visaData: VisaData = {
   title: "Visa",
   description: "With a 96% visa success rate, our expert team ensures that your visa process is smooth, stress-free, and timely. We know that a visa approval is the most crucial step before you begin your journey, and our approach is designed to minimize errors and maximize success.",
-  heroImage: "/business-colleagues-discussing-architecture-project-in-office.webp",
+  heroImage: "/visa.jpeg",
   services: [
     {
       title: "Complete Visa Application Guidance",

@@ -20,7 +20,7 @@ export type ScholarshipData = {
 export const scholarshipData: ScholarshipData = {
   title: "Scholarship",
   description: "At Clover Overseas Education, we believe that financial limitations should never stand in the way of your global education dream. That's why we offer complete assistance in securing scholarships, grants, and education loans, making your journey abroad more affordable. We have successfully helped students secure over $1,700,000 in scholarships worldwide, giving them access to world-class universities with reduced financial burden.",
-  heroImage: "/uni-stud-3hero.jpeg", // Using existing hero image
+  heroImage: "/scholarship.jpeg",
   services: [
     {
       number: "②",
