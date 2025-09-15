@@ -5,6 +5,9 @@ import { regionsData } from '../data/regions-info';
 export default function NavBar() {
   const [active, setActive] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Check if we're on the homepage
+  const isHomepage = typeof window !== 'undefined' && window.location.pathname === '/';
 
   // Regions are now imported from regionsData
 
@@ -33,12 +36,12 @@ export default function NavBar() {
               className="h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 hover:rotate-12 hover:scale-110"
             />
             <div className='flex flex-row space-x-1 md:space-x-1'>
-                <span className="text-lg md:text-4xl font-bold text-emerald-700 font-playfair flex items-center justify-center">C</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">L</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">O</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">V</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair flex items-center justify-center">E</span>
-                <span className="text-lg md:text-2xl font-bold text-emerald-700 font-playfair border border-emerald-600 rounded-full w-8 md:w-10 flex items-center justify-center">R</span>
+                <span className={`text-lg md:text-4xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>C</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>L</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>O</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>V</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>E</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair border rounded-full w-8 md:w-10 flex items-center justify-center ${isHomepage ? 'text-white border-white' : 'text-emerald-700 border-emerald-600'}`}>R</span>
             </div>
           </a>
 
@@ -48,39 +51,39 @@ export default function NavBar() {
               onMouseLeave={() => setActive(null)}
               className="relative rounded-full shadow-input flex justify-center space-x-8 px-8 py-6 text-sm"
             >
-              <a href="/" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+              <a href="/" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Home
               </a>
               
-              <a href="/about" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+              <a href="/about" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 About Us
               </a>
 
-              <MenuItem setActive={setActive} active={active} item="Regions">
+              <MenuItem setActive={setActive} active={active} item="Regions" isHomepage={isHomepage}>
                 <div className="flex flex-col space-y-4 text-sm">
                   {regionsData.map((region) => (
-                    <HoveredLink key={region.id} href={`/${region.id}`}>
+                    <HoveredLink key={region.id} href={`/${region.id}`} isHomepage={isHomepage}>
                       {region.name}
                     </HoveredLink>
                   ))}
                 </div>
               </MenuItem>
 
-              <MenuItem setActive={setActive} active={active} item="Services">
+              <MenuItem setActive={setActive} active={active} item="Services" isHomepage={isHomepage}>
                 <div className="flex flex-col space-y-4 text-sm">
                   {services.map((service) => (
-                    <HoveredLink key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <HoveredLink key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`} isHomepage={isHomepage}>
                       {service}
                     </HoveredLink>
                   ))}
                 </div>
               </MenuItem>
 
-              <a href="/loans" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+              <a href="/loans" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Loans
               </a>
 
-              <a href="/counselling" className="text-emerald-700 hover:text-emerald-600 transition-colors cursor-pointer">
+              <a href="/counselling" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Book Online Counselling
               </a>
             </nav>
@@ -100,7 +103,7 @@ export default function NavBar() {
             </a>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-emerald-900 hover:bg-emerald-50 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${isHomepage ? 'text-white hover:bg-white/20' : 'text-emerald-900 hover:bg-emerald-50'}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMobileMenuOpen ? (

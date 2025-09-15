@@ -321,8 +321,10 @@ export default function HomePage() {
                                         {highlight.heading}
                                     </h3>
                                     <div className="text-4xl md:text-5xl font-bold text-emerald-600 mb-3">
-                                        <NumberTicker value={highlight.value} />
-                                        {highlight.suffix}
+                                        <span>
+                                            <NumberTicker value={highlight.value} />
+                                            {highlight.suffix}
+                                        </span>
                                     </div>
                                     <p className="text-sm text-gray-600 leading-relaxed">
                                         {highlight.subtext}
@@ -667,7 +669,7 @@ export default function HomePage() {
                             className="cursor-pointer"
                         >
                             <img 
-                                src="/clover_logo_1 (6).png" 
+                                src="/Copy of clover_logo_1.jpg" 
                                 alt="Clover Overseas Education" 
                                 className="h-32 w-auto md:h-48 w-auto transition-all duration-300"
                             />

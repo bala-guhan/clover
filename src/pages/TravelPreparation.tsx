@@ -10,93 +10,51 @@ export default function TravelPreparation() {
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
-            {/* Hero Section */}
-            <div className="relative pt-32 pb-16">
-                <div className="max-w-7xl mx-auto px-4 md:px-8">
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                        {/* Text Content */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="space-y-6"
-                        >
-                            <div className="space-y-4">
-                                <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
-                                    {travelPreparationData.title}
-                                </h1>
-                                <h2 className="text-2xl md:text-3xl font-semibold text-emerald-800 leading-tight">
-                                    {travelPreparationData.heading}
-                                </h2>
-                                <p className="text-lg text-gray-700 leading-relaxed">
-                                    {travelPreparationData.subheading}
-                                </p>
-                            </div>
-                        </motion.div>
-
-                        {/* Image */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="relative"
-                        >
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img
-                                    src={travelPreparationData.heroImage}
-                                    alt="Travel Preparation Services"
-                                    className="w-full h-80 md:h-96 object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Content Section */}
-            <div className="relative bg-white py-20">
+            {/* Section 1: Title at top */}
+            <div className="relative pt-32 pb-8">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
                         className="text-center"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-8">
-                            Your Study Abroad Journey
+                        <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
+                            {travelPreparationData.title}
+                        </h1>
+                    </motion.div>
+                </div>
+            </div>
+
+            {/* Section 2: Heading and Subheading */}
+            <div className="relative pb-16">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-center"
+                    >
+                        <h2 className="text-2xl md:text-3xl font-semibold text-emerald-800 leading-tight mb-6">
+                            {travelPreparationData.heading}
                         </h2>
-                        <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                            {travelPreparationData.description}
+                        <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                            {travelPreparationData.subheading}
                         </p>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Image Gallery Section */}
+            {/* Section 3: Image Gallery - 4 images in a row */}
             <div className="relative bg-emerald-50 py-20">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold text-emerald-900 mb-6">
-                            Travel Essentials
-                        </h2>
-                    </motion.div>
-
-                    {/* Image Gallery */}
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                    {/* Image Gallery - Following wireframe design */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                         {[
-                            "/usa-uni-1.jpeg",
-                            "/usa-uni-2.jpeg", 
-                            "/usa-uni-3.jpeg",
-                            "/uni-stud-2hero.jpeg",
-                            "/uni-stud-3hero.jpeg"
+                            "/a-happy-smiling-young-college-student-with-a-book-in-hand-isolated-on-a-transparent-background-generative-ai-free-png.webp",
+                            "/a-smiling-young-man-holding-books-free-png.webp", 
+                            "/ai-generated-female-university-student-smiling-happily-on-transparent-background-png.webp",
+                            "/smiling-student-girl-holding-book-and-backpack-isolated-on-transparent-background-png.webp"
                         ].map((image, index) => (
                             <motion.div
                                 key={index}
@@ -104,21 +62,39 @@ export default function TravelPreparation() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                                className={`relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
+                                    index === 0 ? 'h-48' : 'h-40'
+                                }`}
                             >
                                 <img
                                     src={image}
                                     alt={`Travel preparation ${index + 1}`}
-                                    className="w-full h-32 md:h-40 object-cover hover:scale-105 transition-transform duration-300"
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Content below images */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <h3 className="text-xl md:text-2xl font-semibold text-emerald-900 mb-4">
+                            Your study abroad journey
+                        </h3>
+                        <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                            {travelPreparationData.description}
+                        </p>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Services Section */}
+            {/* Section 4: Travel Support - Flow Diagram Layout */}
             <div className="relative bg-white py-20 overflow-hidden">
                 {/* Animated Background Elements */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -139,47 +115,51 @@ export default function TravelPreparation() {
                         </h2>
                     </motion.div>
 
-                    {/* Services Grid - Following wireframe design with interconnected flow */}
-                    <div className="space-y-12">
-                        {travelPreparationData.services.map((service, index) => (
-                            <motion.div
-                                key={service.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className={`flex flex-col md:flex ${
-                                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                                } gap-8 items-center`}
-                            >
-                                {/* Image */}
-                                <div className="flex-shrink-0">
-                                    <div className="relative rounded-xl overflow-hidden shadow-lg w-64 h-48">
-                                        <img
-                                            src={service.image}
-                                            alt={service.title}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 space-y-4">
-                                    <div className="flex items-center space-x-4">
-                                        <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-2xl text-white">
-                                            {service.icon}
+                    {/* Flow Diagram Layout - Following wireframe design */}
+                    <div className="max-w-6xl mx-auto">
+                        <div className="space-y-16">
+                            {travelPreparationData.services.map((service, index) => (
+                                <motion.div
+                                    key={service.title}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className={`flex flex-col md:flex-row gap-8 items-center ${
+                                        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                                    }`}
+                                >
+                                    {/* Image */}
+                                    <div className="flex-shrink-0">
+                                        <div className="relative rounded-xl overflow-hidden shadow-lg w-80 h-60">
+                                            <img
+                                                src={service.image}
+                                                alt={service.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
                                         </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex-1 space-y-4">
                                         <h3 className="text-2xl font-semibold text-emerald-900">
                                             {service.title}
                                         </h3>
+                                        <p className="text-gray-700 leading-relaxed text-lg">
+                                            {service.description}
+                                        </p>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed text-lg">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+
+                                    {/* Connecting Arrow (except for last item) */}
+                                    {index < travelPreparationData.services.length - 1 && (
+                                        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 mt-32">
+                                            <div className="w-8 h-8 border-r-2 border-b-2 border-emerald-400 transform rotate-45"></div>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

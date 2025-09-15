@@ -37,8 +37,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              
-              <span className="text-2xl font-bold text-emerald-400">Clover</span>
+              <img 
+                src="/Copy of clover_logo_1.jpg" 
+                alt="Clover Overseas Education" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Your journey to global education starts here. We provide comprehensive support for students seeking international education opportunities.
@@ -119,7 +122,7 @@ export default function Footer() {
             
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm">
-                © 2025 Clover Education Services. All rights reserved.
+                © 2025 CloverOversease Education Services. All rights reserved.
               </p>
             </div>
           </div>

@@ -10,31 +10,29 @@ export default function PostLanding() {
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
-            {/* Hero Section */}
+            {/* Section 1: Hero Section - Heading and Picture side by side */}
             <div className="relative pt-32 pb-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                        {/* Text Content */}
+                        {/* Heading */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                             className="space-y-6"
                         >
-                            <div className="space-y-4">
-                                <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
-                                    {postLandingData.title}
-                                </h1>
-                                <h2 className="text-2xl md:text-3xl font-semibold text-emerald-800 leading-tight">
-                                    {postLandingData.heading}
-                                </h2>
-                                <p className="text-lg text-gray-700 leading-relaxed">
-                                    {postLandingData.description}
-                                </p>
-                            </div>
+                            <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
+                                {postLandingData.title}
+                            </h1>
+                            <h2 className="text-2xl md:text-3xl font-semibold text-emerald-800 leading-tight">
+                                {postLandingData.heading}
+                            </h2>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                {postLandingData.description}
+                            </p>
                         </motion.div>
 
-                        {/* Image */}
+                        {/* Picture */}
                         <motion.div
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -72,10 +70,10 @@ export default function PostLanding() {
                     {/* Image Gallery - Following wireframe design with 4 images */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            "/usa-uni-1.jpeg",
-                            "/usa-uni-2.jpeg", 
-                            "/usa-uni-3.jpeg",
-                            "/uni-stud-2hero.jpeg"
+                            "/smiling-young-male-university-student-standing-isolate-on-transparency-background-png.webp",
+                            "/university-student-holding-notebooks-wearing-bag-smiling-transparent-background-png.webp", 
+                            "/student-celebrates-academic-achievement-with-books-cut-out-transparent-png.webp",
+                            "/college-students.webp"
                         ].map((image, index) => (
                             <motion.div
                                 key={index}
@@ -118,41 +116,40 @@ export default function PostLanding() {
                         </h2>
                     </motion.div>
 
-                    {/* Services Grid - Following wireframe design with numbered items */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {postLandingData.services.map((service, index) => (
-                            <motion.div
-                                key={service.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 hover:border-emerald-200 group relative"
-                            >
-                                {/* Number Badge */}
-                                <div className="absolute -top-4 -left-4 w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
-                                    {service.number}
-                                </div>
-
-                                <div className="pt-4">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl group-hover:bg-emerald-200 transition-colors duration-300">
-                                                {service.icon}
-                                            </div>
+                    {/* Numbered List Format - Following wireframe design with vertical line */}
+                    <div className="max-w-4xl mx-auto">
+                        <div className="relative">
+                            {/* Vertical Line */}
+                            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-emerald-300"></div>
+                            
+                            <div className="space-y-8">
+                                {postLandingData.services.map((service, index) => (
+                                    <motion.div
+                                        key={service.title}
+                                        initial={{ opacity: 0, x: -30 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="flex items-start space-x-6 relative"
+                                    >
+                                        {/* Number Circle */}
+                                        <div className="flex-shrink-0 w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg relative z-10">
+                                            {service.number}
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-semibold text-emerald-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                                        
+                                        {/* Content */}
+                                        <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 hover:border-emerald-200">
+                                            <h3 className="text-xl font-semibold text-emerald-900 mb-3">
                                                 {service.title}
                                             </h3>
                                             <p className="text-gray-600 leading-relaxed">
                                                 {service.description}
                                             </p>
                                         </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { testPreparationData } from "@/data/test-preparation-info";
-import PopperButton from '../components/popper-button';
 
 export default function TestPreparation() {
-    const handleStartPreparation = () => {
-        console.log('Start Test Preparation clicked!');
-        // Add navigation logic here
-    };
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
@@ -181,13 +176,6 @@ export default function TestPreparation() {
                             "{testPreparationData.objective}"
                         </blockquote>
                         
-                        <div className="pt-8">
-                            <PopperButton
-                                text={testPreparationData.ctaButton.text}
-                                onClick={handleStartPreparation}
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            />
-                        </div>
                     </motion.div>
                 </div>
             </div>

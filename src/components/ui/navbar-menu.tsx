@@ -18,17 +18,19 @@ export const MenuItem = ({
   active,
   item,
   children,
+  isHomepage = false,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  isHomepage?: boolean;
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-emerald-700 hover:text-emerald-600 transition-colors"
+        className={`cursor-pointer transition-colors ${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'}`}
       >
         {item}
       </motion.p>
@@ -109,11 +111,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+export const HoveredLink = ({ children, isHomepage = false, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { isHomepage?: boolean }) => {
   return (
     <a
       {...rest}
-      className="text-emerald-700 hover:text-emerald-600 transition-colors"
+      className={`transition-colors ${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'}`}
     >
       {children}
     </a>

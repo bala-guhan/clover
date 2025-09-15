@@ -1,39 +1,33 @@
 import { motion } from "framer-motion";
 import { visaData } from "@/data/visa-info";
-import PopperButton from '../components/popper-button';
 
 export default function Visa() {
-    const handleStartApplication = () => {
-        console.log('Start Visa Application clicked!');
-        // Add navigation logic here
-    };
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
-            {/* Hero Section */}
-            <div className="relative pt-32 pb-16">
+            {/* Section 1: Title at top */}
+            <div className="relative pt-32 pb-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center"
+                    >
+                        <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
+                            {visaData.title}
+                        </h1>
+                    </motion.div>
+                </div>
+            </div>
+
+            {/* Section 2: Hero Section - Image and Text side by side */}
+            <div className="relative pb-16">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                        {/* Text Content */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="space-y-6"
-                        >
-                            <div className="space-y-4">
-                                <h1 className="text-3xl md:text-5xl font-bold text-emerald-900 leading-tight">
-                                    {visaData.title}
-                                </h1>
-                                <p className="text-lg text-gray-700 leading-relaxed">
-                                    {visaData.description}
-                                </p>
-                            </div>
-                        </motion.div>
-
                         {/* Image */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
+                            initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="relative"
@@ -46,6 +40,21 @@ export default function Visa() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
                             </div>
+                        </motion.div>
+
+                        {/* Text Content */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="space-y-6"
+                        >
+                            <h2 className="text-2xl md:text-3xl font-semibold text-emerald-800 leading-tight">
+                                Expert Visa Assistance
+                            </h2>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                {visaData.description}
+                            </p>
                         </motion.div>
                     </div>
                 </div>
@@ -97,47 +106,51 @@ export default function Visa() {
                         </h2>
                     </motion.div>
 
-                    {/* Services Grid - Following wireframe design with connected flow */}
-                    <div className="space-y-12">
-                        {visaData.services.map((service, index) => (
-                            <motion.div
-                                key={service.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className={`flex flex-col md:flex ${
-                                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                                } gap-8 items-center`}
-                            >
-                                {/* Image */}
-                                <div className="flex-shrink-0">
-                                    <div className="relative rounded-xl overflow-hidden shadow-lg w-64 h-48">
-                                        <img
-                                            src={service.image}
-                                            alt={service.title}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex-1 space-y-4">
-                                    <div className="flex items-center space-x-4">
-                                        <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-2xl text-white">
-                                            {service.icon}
+                    {/* Alternating Image-Content Layout - Following wireframe design */}
+                    <div className="max-w-6xl mx-auto">
+                        <div className="space-y-16">
+                            {visaData.services.map((service, index) => (
+                                <motion.div
+                                    key={service.title}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className={`flex flex-col md:flex-row gap-8 items-center ${
+                                        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                                    }`}
+                                >
+                                    {/* Image */}
+                                    <div className="flex-shrink-0">
+                                        <div className="relative rounded-xl overflow-hidden shadow-lg w-80 h-60">
+                                            <img
+                                                src={service.image}
+                                                alt={service.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
                                         </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex-1 space-y-4">
                                         <h3 className="text-2xl font-semibold text-emerald-900">
                                             {service.title}
                                         </h3>
+                                        <p className="text-gray-700 leading-relaxed text-lg">
+                                            {service.description}
+                                        </p>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed text-lg">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+
+                                    {/* Connecting Arrow (except for last item) */}
+                                    {index < visaData.services.length - 1 && (
+                                        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 mt-32">
+                                            <div className="w-8 h-8 border-r-2 border-b-2 border-emerald-400 transform rotate-45"></div>
+                                        </div>
+                                    )}
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -231,13 +244,6 @@ export default function Visa() {
                             "{visaData.objective}"
                         </blockquote>
                         
-                        <div className="pt-8">
-                            <PopperButton
-                                text={visaData.ctaButton.text}
-                                onClick={handleStartApplication}
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            />
-                        </div>
                     </motion.div>
                 </div>
             </div>

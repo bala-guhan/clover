@@ -22,7 +22,7 @@ export const postLandingData: PostLandingData = {
   title: "Post-Landing Support",
   heading: "Your Journey Truly Begins After Arrival",
   description: "At Clover, we believe your journey truly begins after arrival, which is why we provide continuous support to help you adapt smoothly.",
-  heroImage: "/uni-stud-hero.jpeg", // Using existing hero image
+  heroImage: "/group-of-young-people-discussing-in-the-co-working-office.webp",
   services: [
     {
       number: "①",
