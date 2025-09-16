@@ -17,15 +17,15 @@ export default async function handler(req, res) {
     const transporter = nodemailer.createTransporter({
       service: 'gmail',
       auth: {
-        user: 'bala@gmail.com',
+        user: process.env.GMAIL_USER || 'cloveroverseas2025@gmail.com',
         pass: process.env.GMAIL_APP_PASSWORD
       }
     });
 
     // Email content
     const mailOptions = {
-      from: 'bala@gmail.com',
-      to: 'utkarsh.g@cloveroverseas.com',
+      from: process.env.GMAIL_USER || 'cloveroverseas2025@gmail.com',
+      to: process.env.GMAIL_TO_EMAIL || 'utkarsh.g@cloveroverseas.com',
       subject: 'New Counselling Form Submission - Clover Overseas Education',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
