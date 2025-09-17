@@ -669,9 +669,9 @@ export default function HomePage() {
                             className="cursor-pointer"
                         >
                             <img 
-                                src="/Copy of clover_logo_1.jpg" 
+                                src="/clover-logo.jpeg" 
                                 alt="Clover Overseas Education" 
-                                className="h-32 w-auto md:h-48 w-auto transition-all duration-300"
+                                className="h-40 w-auto md:h-56 w-auto transition-all duration-300"
                             />
                         </motion.div>
 

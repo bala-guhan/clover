@@ -15,7 +15,6 @@ export default function NavBar() {
     'Counselling',
     'University selection',
     'Test Preparation',
-    'Internship',
     'Documentation',
     'University Application & Admission',
     'Visa',
@@ -62,22 +61,37 @@ export default function NavBar() {
               <MenuItem setActive={setActive} active={active} item="Regions" isHomepage={isHomepage}>
                 <div className="flex flex-col space-y-4 text-sm">
                   {regionsData.map((region) => (
-                    <HoveredLink key={region.id} href={`/${region.id}`} isHomepage={isHomepage}>
-                      {region.name}
+                    <HoveredLink key={region.id} href={`/${region.id}`}>
+                      {region.id === "north-america" ? "Americas" : region.name}
                     </HoveredLink>
                   ))}
                 </div>
               </MenuItem>
 
               <MenuItem setActive={setActive} active={active} item="Services" isHomepage={isHomepage}>
-                <div className="flex flex-col space-y-4 text-sm">
-                  {services.map((service) => (
-                    <HoveredLink key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`} isHomepage={isHomepage}>
-                      {service}
-                    </HoveredLink>
-                  ))}
+                <div className="flex space-x-8 text-sm">
+                  {/* Left Column - First 5 services */}
+                  <div className="flex flex-col space-y-4">
+                    {services.slice(0, 5).map((service) => (
+                      <HoveredLink key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}>
+                        {service}
+                      </HoveredLink>
+                    ))}
+                  </div>
+                  {/* Right Column - Last 4 services */}
+                  <div className="flex flex-col space-y-4">
+                    {services.slice(5, 9).map((service) => (
+                      <HoveredLink key={service} href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}>
+                        {service}
+                      </HoveredLink>
+                    ))}
+                  </div>
                 </div>
               </MenuItem>
+
+              <a href="/internship" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+                Internship
+              </a>
 
               <a href="/loans" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Loans

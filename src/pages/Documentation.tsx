@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { documentationData } from "@/data/documentation-info";
-import PopperButton from '../components/popper-button';
 
 export default function Documentation() {
-    const handleStartPreparation = () => {
-        console.log('Start Document Preparation clicked!');
-        // Add navigation logic here
-    };
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
@@ -189,13 +184,6 @@ export default function Documentation() {
                             "{documentationData.objective}"
                         </blockquote>
                         
-                        <div className="pt-8">
-                            <PopperButton
-                                text={documentationData.ctaButton.text}
-                                onClick={handleStartPreparation}
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            />
-                        </div>
                     </motion.div>
                 </div>
             </div>

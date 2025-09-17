@@ -51,10 +51,10 @@ export type RegionData = {
 export const regionsData: RegionData[] = [
   {
     id: "north-america",
-    name: "North America",
-    description: "Explore world-class education opportunities in North America, home to top-ranked universities and innovative research institutions.",
+    name: "Americas",
+    description: "Explore world-class education opportunities in the Americas, home to top-ranked universities and innovative research institutions.",
     heroImage: "/uni-stud-hero.jpeg",
-    whyChooseDescription: "North America offers unparalleled opportunities for international students seeking world-class education and career advancement. With its diverse academic landscape and strong industry connections, this region provides an ideal environment for personal and professional growth.",
+    whyChooseDescription: "The Americas offer unparalleled opportunities for international students seeking world-class education and career advancement. With its diverse academic landscape and strong industry connections, this region provides an ideal environment for personal and professional growth.",
     whyChoose: [
       "🌎 Home to top-ranked universities and world-class research facilities",
       "📚 Flexible programs with interdisciplinary learning options",

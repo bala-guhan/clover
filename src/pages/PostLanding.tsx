@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { postLandingData } from "@/data/post-landing-info";
-import PopperButton from '../components/popper-button';
 
 export default function PostLanding() {
-    const handleGetSupport = () => {
-        console.log('Get Post-Arrival Support clicked!');
-        // Add navigation logic here
-    };
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
@@ -241,13 +236,6 @@ export default function PostLanding() {
                             "{postLandingData.objective}"
                         </blockquote>
                         
-                        <div className="pt-8">
-                            <PopperButton
-                                text={postLandingData.ctaButton.text}
-                                onClick={handleGetSupport}
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            />
-                        </div>
                     </motion.div>
                 </div>
             </div>

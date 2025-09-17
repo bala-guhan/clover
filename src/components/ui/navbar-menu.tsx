@@ -45,7 +45,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-black/20 backdrop-blur-md rounded-2xl overflow-hidden "
+                className="bg-white backdrop-blur-md rounded-2xl overflow-hidden shadow-lg border border-emerald-200"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -111,11 +111,11 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, isHomepage = false, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { isHomepage?: boolean }) => {
+export const HoveredLink = ({ children, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
       {...rest}
-      className={`transition-colors ${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'}`}
+      className="text-emerald-700 hover:text-emerald-600 transition-colors"
     >
       {children}
     </a>

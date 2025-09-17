@@ -6,8 +6,7 @@ import PopperButton from '../components/popper-button';
 
 export default function AboutUs() {
     const handleStartJourney = () => {
-        console.log('Start Your Journey clicked!');
-        // Add navigation logic here
+        window.location.href = '/counselling';
     };
 
     return (
@@ -215,39 +214,70 @@ export default function AboutUs() {
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {aboutData.whyChooseUs.features.map((feature, index) => (
-                            <motion.div
-                                key={feature.number}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-emerald-100 hover:border-emerald-200 group relative"
-                            >
-                                {/* Number Badge */}
-                                <div className="absolute -top-4 -left-4 w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
-                                    {feature.number}
-                                </div>
+                        {aboutData.whyChooseUs.features.map((feature, index) => {
+                            const isPlacementSupport = feature.title === "Placement Support";
+                            
+                            return (
+                                <motion.div
+                                    key={feature.number}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className={`rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border group relative ${
+                                        isPlacementSupport 
+                                            ? 'bg-gradient-to-br from-emerald-600 to-emerald-700 text-white border-emerald-500 hover:border-emerald-400 transform hover:scale-105' 
+                                            : 'bg-white border-emerald-100 hover:border-emerald-200'
+                                    }`}
+                                >
+                                    {/* Number Badge */}
+                                    <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold shadow-lg ${
+                                        isPlacementSupport 
+                                            ? 'bg-white text-emerald-600' 
+                                            : 'bg-emerald-600 text-white'
+                                    }`}>
+                                        {feature.number}
+                                    </div>
 
-                                <div className="pt-4">
-                                    <div className="flex items-start space-x-4">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl group-hover:bg-emerald-200 transition-colors duration-300">
-                                                {feature.icon}
+                                    {/* Special highlight badge for Placement Support */}
+                                    {isPlacementSupport && (
+                                        <div className="absolute -top-2 -right-2 bg-yellow-400 text-emerald-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
+                                            ⭐ FEATURED
+                                        </div>
+                                    )}
+
+                                    <div className="pt-4">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="flex-shrink-0">
+                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-colors duration-300 ${
+                                                    isPlacementSupport 
+                                                        ? 'bg-white/20 group-hover:bg-white/30' 
+                                                        : 'bg-emerald-100 group-hover:bg-emerald-200'
+                                                }`}>
+                                                    {feature.icon}
+                                                </div>
+                                            </div>
+                                            <div className="flex-1">
+                                                <h3 className={`text-xl font-semibold mb-3 transition-colors duration-300 ${
+                                                    isPlacementSupport 
+                                                        ? 'text-white group-hover:text-emerald-100' 
+                                                        : 'text-emerald-900 group-hover:text-emerald-700'
+                                                }`}>
+                                                    {feature.title}
+                                                </h3>
+                                                <p className={`leading-relaxed ${
+                                                    isPlacementSupport 
+                                                        ? 'text-emerald-100' 
+                                                        : 'text-gray-600'
+                                                }`}>
+                                                    {feature.description}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-semibold text-emerald-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
-                                                {feature.title}
-                                            </h3>
-                                            <p className="text-gray-600 leading-relaxed">
-                                                {feature.description}
-                                            </p>
-                                        </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

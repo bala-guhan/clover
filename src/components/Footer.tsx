@@ -38,9 +38,9 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/Copy of clover_logo_1.jpg" 
+                src="/clover-logo.jpeg" 
                 alt="Clover Overseas Education" 
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

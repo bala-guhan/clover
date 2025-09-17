@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { regionsData } from '../data/regions-info';
 import { RippleButton } from '../components/magicui/ripple-button';
-import { FaChevronRight, FaDollarSign, FaQuestionCircle, FaCheckCircle } from 'react-icons/fa';
+import { FaDollarSign, FaQuestionCircle, FaCheckCircle } from 'react-icons/fa';
 
 const Regions: React.FC = () => {
   const navigate = useNavigate();
@@ -176,15 +176,6 @@ const Regions: React.FC = () => {
                     <p className="text-xs text-gray-500 mt-3 text-center">{country.costs.note}</p>
                   </div>
 
-                  {/* CTA Button */}
-                  <div className="pt-4">
-                    <RippleButton
-                      onClick={() => navigate(`/${country.id}`)}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl w-full md:w-auto"
-                    >
-                      Explore {country.name} <FaChevronRight className="inline-block ml-2" />
-                    </RippleButton>
-                  </div>
                 </div>
               </motion.div>
             ))}

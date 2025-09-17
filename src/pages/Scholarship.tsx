@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { scholarshipData } from "@/data/scholarship-info";
-import PopperButton from '../components/popper-button';
 
 export default function Scholarship() {
-    const handleStartSearch = () => {
-        console.log('Start Scholarship Search clicked!');
-        // Add navigation logic here
-    };
 
     return (
         <div className="bg-emerald-200/50 min-h-screen">
@@ -223,13 +218,6 @@ export default function Scholarship() {
                             "{scholarshipData.objective}"
                         </blockquote>
                         
-                        <div className="pt-8">
-                            <PopperButton
-                                text={scholarshipData.ctaButton.text}
-                                onClick={handleStartSearch}
-                                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            />
-                        </div>
                     </motion.div>
                 </div>
             </div>

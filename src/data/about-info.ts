@@ -72,8 +72,8 @@ export const aboutData: AboutData = {
     },
     {
       value: "85",
-      label: "K Courses",
-      suffix: "",
+      label: "Courses",
+      suffix: "K",
       icon: "📚",
       subtext: "Wide range of academic programs and specializations"
     },
