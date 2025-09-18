@@ -35,12 +35,12 @@ export default function NavBar() {
               className="h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 hover:rotate-12 hover:scale-110"
             />
             <div className='flex flex-row space-x-1 md:space-x-1'>
-                <span className={`text-lg md:text-4xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>C</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>L</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>O</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>V</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-white' : 'text-emerald-700'}`}>E</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair border rounded-full w-8 md:w-10 flex items-center justify-center ${isHomepage ? 'text-white border-white' : 'text-emerald-700 border-emerald-600'}`}>R</span>
+                <span className={`text-lg md:text-4xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>C</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>L</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>O</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>V</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>E</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair border rounded-full w-8 md:w-10 flex items-center justify-center ${isHomepage ? 'text-emerald-700 border-emerald-700' : 'text-emerald-700 border-emerald-600'}`}>R</span>
             </div>
           </a>
 
@@ -50,11 +50,11 @@ export default function NavBar() {
               onMouseLeave={() => setActive(null)}
               className="relative rounded-full shadow-input flex justify-center space-x-8 px-8 py-6 text-sm"
             >
-              <a href="/" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Home
               </a>
               
-              <a href="/about" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/about" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 About Us
               </a>
 
@@ -89,15 +89,15 @@ export default function NavBar() {
                 </div>
               </MenuItem>
 
-              <a href="/internship" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/internship" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Internship
               </a>
 
-              <a href="/loans" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/loans" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Loans
               </a>
 
-              <a href="/counselling" className={`${isHomepage ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/counselling" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
                 Book Online Counselling
               </a>
             </nav>
@@ -117,7 +117,7 @@ export default function NavBar() {
             </a>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${isHomepage ? 'text-white hover:bg-white/20' : 'text-emerald-900 hover:bg-emerald-50'}`}
+              className={`p-2 rounded-lg transition-colors ${isHomepage ? 'text-emerald-900 hover:bg-white/20' : 'text-emerald-900 hover:bg-emerald-50'}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMobileMenuOpen ? (

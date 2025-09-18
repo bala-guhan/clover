@@ -7,7 +7,8 @@ import PopperButton from '../components/popper-button';
 export default function Loans() {
     const handleApplyLoan = () => {
         console.log('Apply for Education Loan clicked!');
-        // Add navigation logic here
+        // Redirect to counselling page and scroll to form section
+        window.location.href = '/counselling#counselling-form';
     };
 
     return (

@@ -336,7 +336,7 @@ export const regionsData: RegionData[] = [
         flag: "🇳🇱",
         description: "The Netherlands offers world-class education with many English-taught programs and a multicultural environment. The country is known for its innovative approach to education and strong connections to European markets.",
         shortDescription: "World-class education with many English-taught programs, multicultural environment, and innovative approach to education.",
-        image: "/uni-stud-2hero.jpeg",
+        image: "/Neatherland.jpg",
         whyChoose: [
           "🎓 Home to top universities like University of Amsterdam & Delft University",
           "🌍 Many English-taught programs in multicultural environment",
@@ -367,7 +367,7 @@ export const regionsData: RegionData[] = [
         flag: "🇨🇭",
         description: "Switzerland offers excellent education with world-renowned universities and a focus on research and innovation. The country provides high-quality education in a beautiful, safe environment.",
         shortDescription: "Excellent education with world-renowned universities, focus on research and innovation in beautiful, safe environment.",
-        image: "/uni-stud-3hero.jpeg",
+        image: "/switzerland.jpeg",
         whyChoose: [
           "🎓 Home to world-renowned universities like ETH Zurich & University of Zurich",
           "🔬 Strong focus on research and innovation",
@@ -398,7 +398,7 @@ export const regionsData: RegionData[] = [
         flag: "🇸🇪",
         description: "Sweden offers high-quality education with a focus on innovation and sustainability. The country provides excellent research opportunities and a high standard of living for international students.",
         shortDescription: "High-quality education with focus on innovation and sustainability, excellent research opportunities and high standard of living.",
-        image: "/uni-stud-hero.jpeg",
+        image: "/Sweden.jpg",
         whyChoose: [
           "🎓 Home to top universities like KTH & Karolinska Institute",
           "🌍 Strong focus on innovation and sustainability",
@@ -429,7 +429,7 @@ export const regionsData: RegionData[] = [
         flag: "🇫🇷",
         description: "France offers world-class education with prestigious universities and a rich cultural heritage. The country provides excellent academic programs and strong connections to European and global markets.",
         shortDescription: "World-class education with prestigious universities, rich cultural heritage, and excellent academic programs.",
-        image: "/uni-stud-2hero.jpeg",
+        image: "/france.jpg",
         whyChoose: [
           "🎓 Home to prestigious universities like Sorbonne & École Polytechnique",
           "🌍 Rich cultural heritage and diverse academic programs",
@@ -460,7 +460,7 @@ export const regionsData: RegionData[] = [
         flag: "🇮🇹",
         description: "Italy offers excellent education with historic universities and a focus on arts, culture, and innovation. The country provides unique academic programs and a rich cultural experience.",
         shortDescription: "Excellent education with historic universities, focus on arts, culture, and innovation with unique academic programs.",
-        image: "/uni-stud-3hero.jpeg",
+        image: "/Italy.webp",
         whyChoose: [
           "🎓 Home to historic universities like University of Bologna & Sapienza",
           "🌍 Strong focus on arts, culture, and design",
@@ -491,7 +491,7 @@ export const regionsData: RegionData[] = [
         flag: "🇪🇸",
         description: "Spain offers quality education with a focus on culture, arts, and business. The country provides excellent academic programs and a vibrant lifestyle for international students.",
         shortDescription: "Quality education with focus on culture, arts, and business, excellent academic programs and vibrant lifestyle.",
-        image: "/uni-stud-hero.jpeg",
+        image: "/Spain.webp",
         whyChoose: [
           "🎓 Home to top universities like University of Barcelona & Complutense",
           "🌍 Strong focus on culture, arts, and business",
@@ -522,7 +522,7 @@ export const regionsData: RegionData[] = [
         flag: "🇵🇱",
         description: "Poland offers high-quality education with affordable tuition fees and a growing economy. The country provides excellent academic programs and strong connections to European markets.",
         shortDescription: "High-quality education with affordable tuition fees, growing economy, and strong European market connections.",
-        image: "/uni-stud-hero.jpeg",
+        image: "/poland.webp",
         whyChoose: [
           "🎓 Home to top universities like University of Warsaw & Jagiellonian University",
           "💰 Very affordable tuition fees compared to Western Europe",
@@ -553,7 +553,7 @@ export const regionsData: RegionData[] = [
         flag: "🇭🇺",
         description: "Hungary offers quality education with affordable costs and a rich cultural heritage. The country provides excellent academic programs and a welcoming environment for international students.",
         shortDescription: "Quality education with affordable costs, rich cultural heritage, and welcoming environment for international students.",
-        image: "/uni-stud-2hero.jpeg",
+        image: "/hungary.jpg",
         whyChoose: [
           "🎓 Home to top universities like Eötvös Loránd University & Budapest University",
           "💰 Affordable education and living costs",
@@ -584,7 +584,7 @@ export const regionsData: RegionData[] = [
         flag: "🇫🇮",
         description: "Finland offers world-class education with a focus on innovation and technology. The country provides excellent academic programs and a high standard of living for international students.",
         shortDescription: "World-class education with focus on innovation and technology, excellent academic programs and high standard of living.",
-        image: "/uni-stud-3hero.jpeg",
+        image: "/Finland.jpg",
         whyChoose: [
           "🎓 Home to top universities like University of Helsinki & Aalto University",
           "🔬 Strong focus on innovation and technology",
@@ -615,7 +615,7 @@ export const regionsData: RegionData[] = [
         flag: "🇩🇰",
         description: "Denmark offers high-quality education with a focus on innovation and sustainability. The country provides excellent academic programs and a high standard of living.",
         shortDescription: "High-quality education with focus on innovation and sustainability, excellent academic programs and high standard of living.",
-        image: "/uni-stud-hero.jpeg",
+        image: "/Denmark.jpg",
         whyChoose: [
           "🎓 Home to top universities like University of Copenhagen & Technical University of Denmark",
           "🌍 Strong focus on innovation and sustainability",
@@ -646,7 +646,7 @@ export const regionsData: RegionData[] = [
         flag: "🇨🇾",
         description: "Cyprus offers quality education with English as the primary language and a Mediterranean lifestyle. The country provides excellent academic programs and a welcoming environment.",
         shortDescription: "Quality education with English as primary language, Mediterranean lifestyle, and welcoming environment for international students.",
-        image: "/uni-stud-2hero.jpeg",
+        image: "/Cyprus.webp",
         whyChoose: [
           "🎓 Home to universities like University of Cyprus & European University Cyprus",
           "🌍 English-speaking environment with Mediterranean culture",
@@ -677,7 +677,7 @@ export const regionsData: RegionData[] = [
         flag: "🇱🇹",
         description: "Lithuania offers quality education with affordable costs and a growing economy. The country provides excellent academic programs and strong connections to European markets.",
         shortDescription: "Quality education with affordable costs, growing economy, and strong European market connections.",
-        image: "/uni-stud-3hero.jpeg",
+        image: "/Luthuania.png",
         whyChoose: [
           "🎓 Home to top universities like Vilnius University & Kaunas University of Technology",
           "💰 Very affordable education and living costs",
@@ -708,7 +708,7 @@ export const regionsData: RegionData[] = [
         flag: "🇧🇬",
         description: "Bulgaria offers quality education with very affordable costs and a rich cultural heritage. The country provides excellent academic programs and a welcoming environment.",
         shortDescription: "Quality education with very affordable costs, rich cultural heritage, and welcoming environment for international students.",
-        image: "/uni-stud-hero.jpeg",
+        image: "/Bulgaria.jpg",
         whyChoose: [
           "🎓 Home to universities like Sofia University & Technical University of Sofia",
           "💰 Very affordable education and living costs",
@@ -739,7 +739,7 @@ export const regionsData: RegionData[] = [
         flag: "🇦🇹",
         description: "Austria offers high-quality education with a focus on arts, culture, and innovation. The country provides excellent academic programs and a high standard of living.",
         shortDescription: "High-quality education with focus on arts, culture, and innovation, excellent academic programs and high standard of living.",
-        image: "/uni-stud-2hero.jpeg",
+        image: "/Austria.webp",
         whyChoose: [
           "🎓 Home to top universities like University of Vienna & Vienna University of Technology",
           "🌍 Strong focus on arts, culture, and music",
@@ -770,7 +770,7 @@ export const regionsData: RegionData[] = [
         flag: "🇨🇿",
         description: "Czech Republic offers quality education with affordable costs and a rich cultural heritage. The country provides excellent academic programs and a welcoming environment for international students.",
         shortDescription: "Quality education with affordable costs, rich cultural heritage, and welcoming environment for international students.",
-        image: "/uni-stud-3hero.jpeg",
+        image: "/Czech Republic.jpg",
         whyChoose: [
           "🎓 Home to top universities like Charles University & Czech Technical University",
           "💰 Very affordable education and living costs",

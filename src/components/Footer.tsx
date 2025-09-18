@@ -1,4 +1,3 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const regions = [
@@ -20,14 +19,6 @@ export default function Footer() {
     'Travel Preparation',
     'Post Landing',
     'Scholarship'
-  ];
-
-  const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
-    { name: 'YouTube', icon: Youtube, href: '#' }
   ];
 
   return (
@@ -90,13 +81,6 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-              {services.length > 6 && (
-                <li>
-                  <a href="/services" className="text-emerald-400 hover:text-emerald-300 transition-colors text-sm">
-                    View All Services →
-                  </a>
-                </li>
-              )}
             </ul>
           </div>
         </div>
@@ -104,21 +88,6 @@ export default function Footer() {
         {/* Social Media Links */}
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-col space-y-2 items-center">
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="text-gray-400 hover:text-emerald-400 transition-colors"
-                    aria-label={social.name}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
-            </div>
             
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm">
