@@ -1,13 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MenuItem, HoveredLink } from './ui/navbar-menu';
 import { regionsData } from '../data/regions-info';
 
 export default function NavBar() {
   const [active, setActive] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(false);
   
   // Check if we're on the homepage
   const isHomepage = typeof window !== 'undefined' && window.location.pathname === '/';
+
+  // Scroll detection for hero section
+  useEffect(() => {
+    if (!isHomepage) return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      
+      // Hero section is min-h-screen, so it's approximately viewport height
+      // We'll use 80% of viewport height as the threshold to account for navbar height
+      const heroThreshold = viewportHeight * 0.8;
+      
+      setIsOverHero(scrollY < heroThreshold);
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHomepage]);
 
   // Regions are now imported from regionsData
 
@@ -35,12 +61,12 @@ export default function NavBar() {
               className="h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 hover:rotate-12 hover:scale-110"
             />
             <div className='flex flex-row space-x-1 md:space-x-1'>
-                <span className={`text-lg md:text-4xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>C</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>L</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>O</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>V</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center ${isHomepage ? 'text-emerald-700' : 'text-emerald-700'}`}>E</span>
-                <span className={`text-lg md:text-2xl font-bold font-playfair border rounded-full w-8 md:w-10 flex items-center justify-center ${isHomepage ? 'text-emerald-700 border-emerald-700' : 'text-emerald-700 border-emerald-600'}`}>R</span>
+                <span className={`text-lg md:text-4xl font-bold font-playfair flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white' : 'text-emerald-700'}`}>C</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white' : 'text-emerald-700'}`}>L</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white' : 'text-emerald-700'}`}>O</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white' : 'text-emerald-700'}`}>V</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white' : 'text-emerald-700'}`}>E</span>
+                <span className={`text-lg md:text-2xl font-bold font-playfair border rounded-full w-8 md:w-10 flex items-center justify-center transition-colors duration-300 ${isOverHero ? 'text-white border-white' : 'text-emerald-700 border-emerald-600'}`}>R</span>
             </div>
           </a>
 
@@ -50,15 +76,15 @@ export default function NavBar() {
               onMouseLeave={() => setActive(null)}
               className="relative rounded-full shadow-input flex justify-center space-x-8 px-8 py-6 text-sm"
             >
-              <a href="/" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/" className={`${isOverHero ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors duration-300 cursor-pointer`}>
                 Home
               </a>
               
-              <a href="/about" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/about" className={`${isOverHero ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors duration-300 cursor-pointer`}>
                 About Us
               </a>
 
-              <MenuItem setActive={setActive} active={active} item="Regions" isHomepage={isHomepage}>
+              <MenuItem setActive={setActive} active={active} item="Regions" isHomepage={isOverHero}>
                 <div className="flex flex-col space-y-4 text-sm">
                   {regionsData.map((region) => (
                     <HoveredLink key={region.id} href={`/${region.id}`}>
@@ -68,7 +94,7 @@ export default function NavBar() {
                 </div>
               </MenuItem>
 
-              <MenuItem setActive={setActive} active={active} item="Services" isHomepage={isHomepage}>
+              <MenuItem setActive={setActive} active={active} item="Services" isHomepage={isOverHero}>
                 <div className="flex space-x-8 text-sm">
                   {/* Left Column - First 5 services */}
                   <div className="flex flex-col space-y-4">
@@ -89,15 +115,15 @@ export default function NavBar() {
                 </div>
               </MenuItem>
 
-              <a href="/internship" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/internship" className={`${isOverHero ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors duration-300 cursor-pointer`}>
                 Internship
               </a>
 
-              <a href="/loans" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/loans" className={`${isOverHero ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors duration-300 cursor-pointer`}>
                 Loans
               </a>
 
-              <a href="/counselling" className={`${isHomepage ? 'text-emerald-700 hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors cursor-pointer`}>
+              <a href="/counselling" className={`${isOverHero ? 'text-white hover:text-emerald-100' : 'text-emerald-700 hover:text-emerald-600'} transition-colors duration-300 cursor-pointer`}>
                 Book Online Counselling
               </a>
             </nav>
@@ -117,7 +143,7 @@ export default function NavBar() {
             </a>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${isHomepage ? 'text-emerald-900 hover:bg-white/20' : 'text-emerald-900 hover:bg-emerald-50'}`}
+              className={`p-2 rounded-lg transition-colors duration-300 ${isOverHero ? 'text-white hover:bg-white/20' : 'text-emerald-900 hover:bg-emerald-50'}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMobileMenuOpen ? (
